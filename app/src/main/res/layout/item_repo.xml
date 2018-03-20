@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="repo"
+            type="com.github.pramodgarg.samplemvvm.model.Repo"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="8dp"
+            android:scaleType="fitStart"
+            app:imageUrl="@{repo.owner.avatar_url}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{repo.name}"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintTop_toTopOf="@+id/image"
+            tools:text="Repo Title"/>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@{repo.description}"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@id/tvTitle"
+            app:layout_constraintLeft_toRightOf="@+id/image"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="Repo Description"/>
+
+        <TextView
+            android:id="@+id/tvStarred"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{String.format(@string/stars, repo.stargazers_count)}"
+            app:layout_constraintStart_toStartOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            tools:text="100 Stars"/>
+
+        <TextView
+            android:id="@+id/tvDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/divider"
+            app:layout_constraintLeft_toRightOf="@+id/tvStarred"
+            app:layout_constraintTop_toTopOf="@+id/tvStarred"/>
+
+        <TextView
+            android:id="@+id/tvOpenIssues"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@{String.format(@string/issues,repo.open_issues_count)}"
+            app:layout_constraintLeft_toRightOf="@+id/tvDivider"
+            app:layout_constraintTop_toTopOf="@+id/tvDivider"
+            tools:text="5 Open Issues"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

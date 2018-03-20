@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SampleMVVM</string>
+
+    <string name="stars">%d Stars</string>
+    <string name="issues">%d Open Issues</string>
+    <string name="divider">|</string>
+</resources>
