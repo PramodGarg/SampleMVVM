@@ -9,7 +9,7 @@
 
         <variable
             name="repo"
-            type="com.github.pramodgarg.samplemvvm.model.Repo"/>
+            type="com.github.pramodgarg.samplemvvm.data.model.Repo"/>
     </data>
 
     <android.support.constraint.ConstraintLayout

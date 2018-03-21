@@ -64,6 +64,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$project.retrofitVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$project.okhttpVersion"
     implementation "com.squareup.retrofit2:converter-gson:$project.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$project.retrofitVersion"
 
     //glide
     implementation("com.github.bumptech.glide:glide:$project.glideVersion") {

@@ -1,8 +1,4 @@
-package com.github.pramodgarg.samplemvvm.utils;
-
-/**
- * Created by pramod on 20/03/18.
- */
+package com.github.pramodgarg.samplemvvm.utils.rx;
 
 import android.databinding.Observable.OnPropertyChangedCallback;
 import android.databinding.ObservableBoolean;

@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.github.pramodgarg.samplemvvm.ListRepoViewModel"/>
+            type="com.github.pramodgarg.samplemvvm.ui.viewmodel.ListRepoViewModel"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
