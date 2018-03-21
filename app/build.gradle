@@ -39,6 +39,7 @@ project.ext {
     retrofitVersion = "2.3.0"
     okhttpVersion = "3.9.0"
     glideVersion = "4.6.1"
+    daggerVersion = "2.14.1"
 }
 
 dependencies {
@@ -70,6 +71,12 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:$project.glideVersion") {
         exclude group: "com.android.support"
     }
+
+    //dagger
+    compile "com.google.dagger:dagger:$project.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$project.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$project.daggerVersion"
+    compile "com.google.dagger:dagger-android-support:$project.daggerVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

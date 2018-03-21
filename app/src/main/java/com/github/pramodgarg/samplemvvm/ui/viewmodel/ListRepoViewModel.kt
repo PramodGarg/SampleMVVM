@@ -13,16 +13,16 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
-public class ListRepoViewModel(private val schedulerProvider: SchedulerProvider, private val apiHelper: ApiHelper) : ViewModel() {
-
-    private val compositeDisposable by lazy { CompositeDisposable() }
+class ListRepoViewModel(
+        private val schedulerProvider: SchedulerProvider, private val apiHelper: ApiHelper,
+        private val mCompositeDisposable: CompositeDisposable) : ViewModel() {
 
     val email = ObservableField<String>()
     val isLoading = ObservableBoolean(false)
     var repo = MutableLiveData<List<Repo>>()
 
     init {
-        compositeDisposable.add(RxBinding.toObservable(email)
+        mCompositeDisposable.add(RxBinding.toObservable(email)
                 .subscribeOn(schedulerProvider.io())
                 // wait 1 second after all typing events are fired, then make api request
                 .debounce(1000, TimeUnit.MILLISECONDS)
@@ -35,13 +35,14 @@ public class ListRepoViewModel(private val schedulerProvider: SchedulerProvider,
      */
     private fun getRepos(userName: String) {
         isLoading.set(true)
-        compositeDisposable.add(apiHelper.fetchUserRepos(userName).subscribeOn(Schedulers.io())
+        mCompositeDisposable.add(apiHelper.fetchUserRepos(userName).subscribeOn(Schedulers.io())
                 .subscribeOn(schedulerProvider.io())
                 .observeOn(schedulerProvider.main())
                 .subscribe({ list ->
                     repo.value = list
                     isLoading.set(false)
                 }, { error ->
+                    repo.value = emptyList()
                     isLoading.set(false)
                     Log.d("error", "" + error.message)
                 }))
@@ -49,7 +50,7 @@ public class ListRepoViewModel(private val schedulerProvider: SchedulerProvider,
 
     override fun onCleared() {
         // dispose all observable when viewmodel is to be destroyed to prevent memory leaks
-        compositeDisposable.dispose()
+        mCompositeDisposable.dispose()
         super.onCleared()
     }
 }

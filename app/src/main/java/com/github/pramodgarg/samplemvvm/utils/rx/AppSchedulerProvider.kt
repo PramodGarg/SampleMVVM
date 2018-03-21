@@ -2,11 +2,9 @@ package com.github.pramodgarg.samplemvvm.utils.rx
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-/**
- * Created by pramod on 21/03/18.
- */
-class AppSchedulerProvider : SchedulerProvider {
+class AppSchedulerProvider @Inject constructor() : SchedulerProvider {
 
     override fun io() = Schedulers.io()
 
