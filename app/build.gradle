@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2018 Pramod Garg
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   You may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing,
+ *   software distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *
+ *   See the License for the specific language governing permissions and limitations under the License.
+ */
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -31,11 +47,11 @@ android {
 }
 
 project.ext {
-    constraintLayoutVersion = "1.1.0-beta5"
+    constraintLayoutVersion = "1.1.0-beta6"
     supportLibraryVersion = "26.1.0"
     rxJavaVersion = "2.1.0"
     rxAndroidVersion = "2.0.2"
-    lifecycleVersion = "1.1.0"
+    lifecycleVersion = "1.1.1"
     retrofitVersion = "2.3.0"
     okhttpVersion = "3.9.0"
     glideVersion = "4.6.1"
@@ -50,7 +66,6 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:$project.constraintLayoutVersion"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    kapt "com.android.databinding:compiler:$buildToolsVersion"
 
     // ReactiveX
     implementation "io.reactivex.rxjava2:rxjava:$project.rxJavaVersion"
@@ -73,10 +88,10 @@ dependencies {
     }
 
     //dagger
-    compile "com.google.dagger:dagger:$project.daggerVersion"
+    implementation "com.google.dagger:dagger:$project.daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$project.daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$project.daggerVersion"
-    compile "com.google.dagger:dagger-android-support:$project.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$project.daggerVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

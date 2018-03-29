@@ -62,6 +62,7 @@ obj/
 /out/
 
 # User-specific configurations
+.idea/
 .idea/gradle.xml
 .idea/runConfigurations.xml
 
