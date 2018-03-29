@@ -14,7 +14,7 @@ The application retrieves the list of github repositories of the username entere
 | Sample | Description |
 | ------------- | ------------- |
 | [master](https://github.com/PramodGarg/SampleMVVM/tree/master) | Basic implementation of MVVM using Kotlin, Architecture Components, RxJava2 and Data Binding |
-| [dagger](https://github.com/PramodGarg/SampleMVVM/tree/dagger/) | Basic implementation of MVVM using Kotlin,Architecture Components, RxJava2, Data Binding and Dagger2 (Dependency Injection) |
+| [dagger](https://github.com/PramodGarg/SampleMVVM/tree/dagger/) | Basic implementation of MVVM using Kotlin, Architecture Components, RxJava2, Data Binding and Dagger2 (Dependency Injection) |
 
 ### For Sample project on Data Binding - [Check here](https://github.com/PramodGarg/SampleDataBinding)
 ### For Sample project on MVP Architecture - [Check here](https://github.com/PramodGarg/SampleMVP)
